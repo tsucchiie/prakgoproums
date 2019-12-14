@@ -1,73 +1,62 @@
-##import tkinter
-##
-##inp1= Entry(TkObject)
-##inp2= Entry(TkObject)
-##
-##inp1.grid(row=0,column=0)
-##inp2.grid(row=1,column=0)
-##
-##
-##TkObject.mainloop()
-
-
-
-# Meng-import module tkinter
 from tkinter import *
+from tkinter import messagebox
 
-# Membuat Object Tkinter
-TkObject = Tk()
+apl = Tk()
 
-# Membuat widget label header
-Header = Label(TkObject, text="KALKULATOR SEDERHANA")
-# Memasukan label header kedalam Grid
-Header.grid(columnspan=2)
+apl.title("Kalkulator Apik")
 
-# Membuat widget label serta entry untuk username dan password
-label1 = Label(TkObject, text="Angka 1")
-label2 = Label(TkObject, text="Angka 2")
-Entry1 = Entry(TkObject)
-Entry2 = Entry(TkObject)
+L = Label(apl, text="Kalkulator UwU", font=("Arial", 20))
+L.grid(row=0, column=1)
+L1 = Label(apl, text="Angka Pertama")
+L1.grid(row=1, column=0, sticky="W", columnspan=2)
+a1 = StringVar()
+E1 = Entry(apl, textvariable=a1)
+E1.grid(row=1, column=1)
 
-# Memasukan widget label dan entry dari username dan password ke dalam grid
-label1.grid(row=2, column=0, sticky=E)
-label2.grid(row=3, column=0, sticky=E)
+L2 =Label(apl, text="Angka Kedua")
+L2.grid(row=2, column=0, sticky="W", columnspan=2)
+a2 = StringVar()
+E2 = Entry(apl, textvariable=a2)
+E2.grid(row=2, column=1)
 
-Entry1.grid(row=2, column=1)
-Entry2.grid(row=3, column=1)
-
-num=0
-a=Entry1
-b=Entry2
-def plus():
-    num=a+b
-    return num
-
-def mins():
-    num=a-b
-    return num
-
+def tambah():
+    x = float(a1.get())
+    y = float(a2.get())
+    z = x + y
+    E4.config(text = z)
+def kurang():
+    x = float(a1.get())
+    y = float(a2.get())
+    z = x - y
+    E4.config(text = z)
 def kali():
-    num=a*b
-    return num
-
+    x = float(a1.get())
+    y = float(a2.get())
+    z = x * y
+    E4.config(text = z)
 def bagi():
-    num=a/b
-    return num
+    x = float(a1.get())
+    y = float(a2.get())
+    z = x / y
+    E4.config(text = z)
+    
+B1 = Button(apl, text="[ + ]", command=tambah, width=6)
+B1.grid(row=3, column=0, sticky="W")
+B2 = Button(apl, text="[ - ]", command=kurang, width=6)
+B2.grid(row=3, column=1)
+B3 = Button(apl, text="[ x ]", command=kali, width=6)
+B3.grid(row=3, column=2)
+B4 = Button(apl, text="[ : ]", command=bagi, width=6)
+B4.grid(row=3, column=5)
 
+sp=Label(apl,text='ScriptBy')
+sp.grid(row=0,column=4)
+sp1=Label(apl,text='Arindra065')
+sp1.grid(row=1,column=4)
 
-button0 = Button(TkObject, text="PLUS [+]",command=plus)
-button0.grid(row=4, column=0)
-
-button1 = Button(TkObject, text="MINS [-]",command=mins)
-button1.grid(row=4, column=1)
-
-button2 = Button(TkObject, text="BAGI [:]",command=bagi)
-button2.grid(row=5, column=0)
-
-button3 = Button(TkObject, text="KALI [X]",command=kali)
-button3.grid(row=5, column=1)
-
-hasil=Label(TkObject, text="HASIL= {}".format(num), bg='red')
-
-# Menjalankan program
-TkObject.mainloop()
+L4 =Label(apl, text="Hasil")
+L4.grid(row=4, column=0, sticky="W")
+a4 = StringVar()
+E4 = Label(apl, text="")
+E4.grid(row=4, column=1)
+apl.mainloop()

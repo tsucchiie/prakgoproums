@@ -1,46 +1,54 @@
-
-# meng-import Tkinter
 from tkinter import *
+from tkinter import messagebox
 
+apl = Tk()
 
-def exit():
-    print('close')
-    quit()
+apl.title("Data diri")
 
-# Membuat Object Tkinter
-TkObject = Tk()
+L = Label(apl, text="Data diri", font=("Arial", 20))
+L.grid(row=0, column=0)
+L1 = Label(apl, text="Nama Mahasiswa")
+L1.grid(row=1, column=0, sticky="W")
+nama = StringVar()
+E1 = Entry(apl, textvariable=nama)
+E1.grid(row=1, column=1)
 
-# Membuat Frame Pertama
-TopFrame = Frame(TkObject)
-TopFrame.pack(side=TOP, fill=X)
+L2 =Label(apl, text="NIM")
+L2.grid(row=2, column=0, sticky="W")
+nim = StringVar()
+E2 = Entry(apl, textvariable=nim)
+E2.grid(row=2, column=1)
 
-# Membuat Frame Pertama
-BottomFrame = Frame(TkObject)
-BottomFrame.pack(side=LEFT, fill=X)
+L3 =Label(apl, text="Buku favorit")
+L3.grid(row=3, column=0, sticky="W")
+buku = StringVar()
+E3 = Entry(apl, textvariable=buku)
+E3.grid(row=3, column=1)
 
-# Membuat Label dan menempatkannya pada Top Frame
-label1 = Label(TopFrame, text="DATA DIRI",font=('Arial,24'))
-label1.pack(side=TOP)
+L4 =Label(apl, text="Idola di kalangan sahabat")
+L4.grid(row=4, column=0, sticky="W")
+idola = StringVar()
+E4 = Entry(apl, textvariable=idola)
+E4.grid(row=4, column=1)
 
-# Membuat Label dan menempatkannya pada Bottom Frame
-spacing= Label(BottomFrame,text='')
-label2 = Label(BottomFrame, text="Nama:            Arindra Hning Adhepta")
-label3 = Label(BottomFrame, text="NIM:               L200190065                 ")
-label4 = Label(BottomFrame, text="Alamat:         Solo                              ")
-label5 = Label(BottomFrame, text="Moto:             Chill Santuy                  ")
-label6 = Label(BottomFrame, text="Pekerjaan:     Mahasiswa                    ")
-butt=Button(TkObject, text="TUTUP", command=exit)
+L5 =Label(apl, text="Motto")
+L5.grid(row=5, column=0, sticky="W")
+motto = StringVar()
+E5 = Entry(apl, textvariable=motto)
+E5.grid(row=5, column=1)
 
-spacing.pack()
-label2.pack()
-label3.pack()
-label4.pack()
-label5.pack()
-label6.pack()
-butt.pack(side=BOTTOM)
+def hello():
+    messagebox.showinfo("Pesan", "Hallo!"+ "\n" +
+                        'Nama: '+nama.get() + "\n" +
+                        'NIM: '+nim.get() + "\n" +
+                        'Buku: '+buku.get() + "\n" +
+                        'Idola: '+idola.get() + "\n" +
+                        'Motto: '+motto.get() 
+                        )
 
-
-# Menampilkan Window
-TkObject.mainloop()
-
+B1 = Button(apl, text="Hello", command=hello)
+B1.grid(row=6, column=0)
+B2 = Button(apl, text="Tutup", command=apl.destroy)
+B2.grid(row=6, column=1)
+apl.mainloop()
 
